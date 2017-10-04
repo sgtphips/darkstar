@@ -1,15 +1,16 @@
-from django.shortcuts import render
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import TemplateView
 
-# Create your views here.
+class HomeTemplateView(TemplateView):
+	context_object_name = 'home'
+	template_name = 'home/home.html'
 
-def home(request):
-	return render(request, 'home/home.html', {})
+	# def get_context_data(self, **kwargs):
+	#     context = super(HomeTemplateView, self).get_context_data(**kwargs)
+	#     context['summaries'] = Summary.objects.all()
+	#     context['experiences'] = Experience.objects.all()
+	#     context['schools'] = School.objects.all()
+	#     context['skills'] = Skill.objects.all()
+	#     context['certifications'] = Certification.objects.all()
 
-def about(request):
-	return render(request, 'about/about.html', {})
-
-def contact(request):
-	return render(request, 'contact/contact.html', {})
-
-def donations(request):
-	return render(request, 'donations/donations.html', {})
+	#     return context

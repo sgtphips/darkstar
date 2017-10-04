@@ -14,3 +14,8 @@ class Media(models.Model):
 
 	def __str__(self):
 		return self.exp_title
+
+	# This removes the extra 's' in the admin panel
+	# Instead of it saying 'Medias' it will say 'Media'
+	class Meta:
+		verbose_name_plural = "Media"
