@@ -14,17 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
-from django.contrib import admin
-from django.contrib.flatpages import views
-from home.views import HomeTemplateView
-
+from media.views import AudioListView, VideoListView
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', include('home.urls')),
-    url(r'^blog/', include('blog.urls')),
-    url(r'^media/', include('media.urls')),
-    url(r'^about/', views.flatpage, {'url': '/about/'}, name='about'),
-    url(r'^contact/', views.flatpage, {'url': '/contact/'}, name='contact'),
-    url(r'^donations/', views.flatpage, {'url': '/donations/'}, name='donations'),
+	url(r'^video/$', VideoListView.as_view(), name='video'),
+    url(r'^audio/$', AudioListView.as_view(), name='audio'),
 ]

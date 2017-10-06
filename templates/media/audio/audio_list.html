@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adam's Audio</title>
+</head>
+<body>
+	<h1>This is the Audio list</h1>
+	{% block content %}
+		{% for aud in audio %}
+			<p>Audio Title: {{ aud.title }}</p>
+			<img src="{{ aud.featured_image}}" alt="">
+			<hr>
+			<audio controls>
+				<source src="https://docs.google.com/uc?export=download&id={{ aud.link_to_audio }}">
+			</audio>
+			<hr>
+			<p>Audio Description: {{ aud.description }}</p>
+		{% endfor %}
+	{% endblock %}
+</body>
+</html>

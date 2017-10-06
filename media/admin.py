@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Media
+from .models import Audio, Video
 # Register your models here.
-admin.site.register(Media)
+admin.site.register(Audio)
+admin.site.register(Video)
