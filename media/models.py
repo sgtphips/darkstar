@@ -4,7 +4,7 @@ from django.utils import timezone
 class Audio(models.Model):
 	author = models.ForeignKey('auth.User')
 	title = models.CharField(max_length=200)
-	link_to_audio = models.CharField(max_length=200)
+	audio_file = models.FileField()
 	description = models.TextField()
 	featured_image = models.URLField(max_length=500)
 	created_date = models.DateTimeField(default=timezone.now)
@@ -42,3 +42,4 @@ class Video(models.Model):
 	# Instead of it saying 'Medias' it will say 'Media'
 	class Meta:
 		verbose_name_plural = "Video"
+

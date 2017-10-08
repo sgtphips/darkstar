@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import include, url
 from media.views import AudioListView, VideoListView
 
@@ -20,3 +22,6 @@ urlpatterns = [
 	url(r'^video/$', VideoListView.as_view(), name='video'),
     url(r'^audio/$', AudioListView.as_view(), name='audio'),
 ]
+
+if settings.DEBUG is True:
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

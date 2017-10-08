@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Adam's Audio</title>
-</head>
-<body>
-	<h1>This is the Audio list</h1>
+{% extends 'base.html' %}
 	{% block content %}
-		{% for aud in audio %}
-			<p>Audio Title: {{ aud.title }}</p>
-			<img src="{{ aud.featured_image}}" alt="">
-			<hr>
-			<audio controls>
-				<source src="https://docs.google.com/uc?export=download&id={{ aud.link_to_audio }}">
-			</audio>
-			<hr>
-			<p>Audio Description: {{ aud.description }}</p>
-		{% endfor %}
+		<div class="container">
+			{% for aud in audio %}
+			<div class="card text-white bg-dark mb-3">
+			  <h4 class="card-header">{{ aud.title }}</h4>
+			  <div class="card-body">
+			    <ul class="list-unstyled">
+			      <li class="media my-4">
+			        <div class="media-body">
+			          <p>{{ aud.description }}</p>
+			          <a href="{{ aud.audio_file }}" class="btn btn-outline-success float-right">Download</a>
+			          <audio controls class="float-right">
+			          	<source src="{{ aud.audio_file.url }}" type="audio/mp3">
+			          </audio>
+			        </div>
+			      </li>
+			  </ul>
+			</div>
+			{% endfor %}
+		</div>
 	{% endblock %}
-</body>
-</html>

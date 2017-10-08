@@ -2,13 +2,15 @@
 
 
 	{% block content %}
-		<div class="row">
-			<div class="panel panel-default">
-			  <div class="panel-heading">{{ flatpage.title }}</div>
-			  <div class="panel-body">
-			    <p>{{ flatpage.content }}</p>
-			  </div>
-			</div>
+	<div class="container">
+		<div class="card text-white bg-dark mb-3">
+		  <h4 class="card-header">{{ flatpage.title }}</h4>
+		  <div class="card-body">
+		    <p class="card-text text-white">
+		      {{ flatpage.content }}
+		    </p>
+		  </div>
 		</div>
+	</div>
 	{% endblock %}
 	
