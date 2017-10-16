@@ -1,0 +1,73 @@
+<div class="jumbotron text-center">
+	<span class="align-top pull-right">
+		<%= link_to "", donations_path(@donation), class: "btn btn-outline-warning fa fa-btc fa-3x pull-right" %>
+	</span>
+	<h1>Adam's Kickass Website</h1>
+</div>
+<div class="container m-t-md">
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<div class="card-deck">
+				<% @audios.each do |audio| %>
+			  <div class="card">
+			    <div class="card-body bg-light">
+			        <h4 class="card-title text-center">
+			        	<%= link_to audio.title, audio_path(audio) %>	
+			        </h4>
+			        <p class="card-text"><audio id="<%= audio.audio %>" src="<%= audio.audio %>"></audio></p>
+			        <div>
+			            <button class="fa fa-play-circle fa-2x btn btn-info btn-block" onclick="document.getElementById('<%= audio.audio %>').play()"></button>
+			            <button class="fa fa-pause-circle fa-2x btn btn-warning btn-block" onclick="document.getElementById('<%= audio.audio %>').pause()"></button>
+			            <a href="<%= audio.audio %>" class="fa fa-download fa-2x btn btn-success btn-block"></a>
+			        </div>
+			    </div>
+			  </div>
+			  <% end %>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+			<div class="card bg-dark text-white text-center">
+				<div class="card-header">
+				  Kick Ass Videos
+				</div>
+				<div class="card-body">
+			<% @videos.each do |video| %>
+			 
+			   <h4 class="card-title"><%= video.title %></h4>
+			   <div class="embed-responsive embed-responsive-21by9">
+			    <iframe class="embed-responsive-item" src="<%= video.link_to_video %>" allowfullscreen></iframe>
+			</div>
+			   <p> <%= video.description %></p>
+			   <% end %>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<br>
+		<div class="row">
+			<div class="col-sm-12">
+				<ul class="list-group">
+					<% @posts.each do |post| %>
+					<li class="list-group-item">
+						<h3><%= link_to post.title, post_path(post) %></h3>
+						<p class="text-muted"><%= post.author %></p>
+						<p><%= truncate(post.body, length: 100, separator: '') %></p>
+						<p><%= link_to 'More..', post_path(post), class: "btn btn-success pull-right" %></p>
+					</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>	
+</div>
+
+
+
+
+
+
+

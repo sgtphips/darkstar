@@ -1,0 +1,26 @@
+<div class="container bg-dark text-white">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @audio.title %>
+</p>
+
+<p>
+  <strong>Audio:</strong>
+  <audio controls src="<%= @audio.audio %>"></audio>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @audio.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @audio.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_audio_path(@audio) %> |
+<%= link_to 'Back', audios_path %>
+</div>

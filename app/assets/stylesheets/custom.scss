@@ -1,0 +1,20 @@
+$background-color: black;
+$background-image: url(bg.png);
+$font-audiowide: 'Audiowide', cursive;
+$font-orbitron: 'Orbitron', sans-serif;
+
+body {
+	background-color: $background-color;
+	background-image: $background-image;
+	background-size: cover;
+	padding-top: 50px;
+}
+
+p {
+	font-family: $font-audiowide;
+	
+}
+
+h1,h2,h3,h4 {
+	font-family: $font-orbitron;
+}

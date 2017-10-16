@@ -1,0 +1,24 @@
+<div class="container bg-dark text-white">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @video.title %>
+</p>
+
+<p>
+  <strong>Link to video:</strong>
+  <%= @video.link_to_video %><br>
+  <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="<%= @video.link_to_video %>" allowfullscreen></iframe>
+  </div>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @video.description %>
+</p>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>
+</div>
