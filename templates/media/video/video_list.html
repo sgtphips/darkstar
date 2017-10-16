@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adam's Videos</title>
+</head>
+<body>
+	<h1>This is the videos list</h1>
+	{% block content %}
+		{% for vid in video %}
+			<p>Video Title: {{ vid.title }}</p>
+			<hr>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ vid.embed_code }}" frameborder="0" allowfullscreen></iframe>
+			<hr>
+			<p>Video Description: {{ vid.description }}</p>
+		{% endfor %}
+	{% endblock %}
+</body>
+</html>
