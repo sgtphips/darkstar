@@ -20,14 +20,3 @@
 
 /node_modules
 /yarn-error.log
-
-.byebug_history
-=======
-*.pyc
-*~
-__pycache__
-adamvenv
-db.sqlite3
-/static
-.DS_Store
->>>>>>> 824d60fcd93e8fa0ba4b97cfc00079b4b156e817
