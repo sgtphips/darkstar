@@ -8,8 +8,6 @@ Rails.application.routes.draw do
 
   get "about" => "static#about"
   get "contact" => "static#contact"
-  get "kickassadmin" => "kick_ass_admin#index"
-  get "kickassadmin/post/new" => "kick_ass_admin#post_new"
   root "static#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
