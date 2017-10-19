@@ -1,35 +1,25 @@
-<div class="container">
-  <p id="notice"><%= notice %></p>
-
-  <h1>Audios</h1>
-
-  <table class="table table-striped table-inverse">
-    <thead>
-      <tr>
-        <th scope="row">Title</th>
-        <th scope="row">Audio</th>
-        <th scope="row">Created on</th>
-        <th scope="row">Updated on</th>
-        <th colspan="5"></th>
-      </tr>
-    </thead>
-
-    <tbody>
+<div class="container mt-5 md">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 m-auto">
       <% @audios.each do |audio| %>
-        <tr>
-          <td><%= audio.title %></td>
-          <td><audio controls src="<%= audio.audio %>"></audio></td>
-          <td><%= audio.created_at %></td>
-          <td><%= audio.updated_at %></td>
-          <% if user_signed_in? %>
-          <td><%= link_to 'Show', audio %></td>
-          <td><%= link_to 'Edit', edit_audio_path(audio) %></td>
-          <td><%= link_to 'Delete', audio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'New Audio', new_audio_path %></td>
-          <% end %>
-        </tr>
+      <div class="card mt-2 mb-2 bg-dark text-white">
+        <div class="card-body text-center">
+         <p><%= link_to audio.title, audio %></p>
+         <p><audio controls src="<%= audio.audio %>"></audio></p>
+         <p>
+           <% if user_signed_in? %>
+           <%= link_to 'Show', audio %>
+           <%= link_to 'Edit', edit_audio_path(audio) %>
+           <%= link_to 'Delete', audio, method: :delete, data: { confirm: 'Are you sure?' } %>
+           <%= link_to 'New Audio', new_audio_path %>
+           <% end %>
+         </p>
+        </div>
+      </div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
 </div>
+
+
 
