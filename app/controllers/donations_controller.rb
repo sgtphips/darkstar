@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /donations
   # GET /donations.json
   def index

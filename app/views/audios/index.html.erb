@@ -21,10 +21,12 @@
           <td><audio controls src="<%= audio.audio %>"></audio></td>
           <td><%= audio.created_at %></td>
           <td><%= audio.updated_at %></td>
+          <% if user_signed_in? %>
           <td><%= link_to 'Show', audio %></td>
           <td><%= link_to 'Edit', edit_audio_path(audio) %></td>
           <td><%= link_to 'Delete', audio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <td><%= link_to 'New Audio', new_audio_path %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

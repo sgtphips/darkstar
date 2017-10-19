@@ -1,6 +1,6 @@
 class AudiosController < ApplicationController
   before_action :set_audio, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /audios
   # GET /audios.json
   def index

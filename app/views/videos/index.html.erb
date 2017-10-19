@@ -7,7 +7,6 @@
    <thead>
      <tr>
        <th scope="row">Title</th>
-       <th scope="row">Link to video</th>
        <th scope="row">Video</th>
        <th scope="row">Description</th>
        <th colspan="4"></th>
@@ -17,14 +16,15 @@
    <tbody>
      <% @videos.each do |video| %>
        <tr>
-         <td><%= video.title %></td>
-         <td><%= video.link_to_video %></td>
+         <td><%= link_to(video.title, video_path(video)) %></td>
          <td><iframe class="embed-responsive-item" src="<%= video.link_to_video %>" allowfullscreen></iframe></td>
          <td><%= video.description %></td>
+         <% if user_signed_in? %>
          <td><%= link_to 'Show', video %></td>
          <td><%= link_to 'Edit', edit_video_path(video) %></td>
          <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
          <td><%= link_to 'New Video', new_video_path %></td>
+         <% end %>
        </tr>
      <% end %>
    </tbody>
