@@ -4,7 +4,7 @@ class AudiosController < ApplicationController
   # GET /audios
   # GET /audios.json
   def index
-    @audios = Audio.all
+    @audios = Audio.all.order('created_at DESC')
   end
 
   # GET /audios/1
