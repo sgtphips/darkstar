@@ -1,33 +1,25 @@
-<div class="container">
- <p id="notice"><%= notice %></p>
-
- <h1>Videos</h1>
-
- <table class="table table-striped table-inverse">
-   <thead>
-     <tr>
-       <th scope="row">Title</th>
-       <th scope="row">Video</th>
-       <th scope="row">Description</th>
-       <th colspan="4"></th>
-     </tr>
-   </thead>
-
-   <tbody>
-     <% @videos.each do |video| %>
-       <tr>
-         <td><%= link_to(video.title, video_path(video)) %></td>
-         <td><iframe class="embed-responsive-item" src="<%= video.link_to_video %>" allowfullscreen></iframe></td>
-         <td><%= video.description %></td>
-         <% if user_signed_in? %>
-         <td><%= link_to 'Show', video %></td>
-         <td><%= link_to 'Edit', edit_video_path(video) %></td>
-         <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-         <td><%= link_to 'New Video', new_video_path %></td>
-         <% end %>
-       </tr>
-     <% end %>
-   </tbody>
- </table> 
+<div class="container mt-5 md">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 m-auto">
+      <% @videos.each do |video| %>
+      <div class="card mt-2 mb-2 bg-dark text-white">
+        <div class="card-body text-center">
+           <p><%= link_to(video.title, video_path(video)) %></p>
+           <div class="embed-responsive embed-responsive-21by9">
+           <iframe class="embed-responsive-item" src="<%= video.link_to_video %>" allowfullscreen></iframe>
+        </div>
+         <p><%= video.description %></p>
+         <p>
+           <% if user_signed_in? %>
+             <%= link_to 'Show', video %>
+             <%= link_to 'Edit', edit_video_path(video) %>
+             <%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+             <%= link_to 'New Video', new_video_path %>
+           <% end %>
+         </p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
